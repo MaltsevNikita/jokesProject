@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import '../styles/global.css'
+
+const response = await fetch("https://abhi-api.vercel.app/api/fun/jdev");
+const data = await response.json();
+const randomJokeSetup = data.result.setup;
+const randomJokePunchline = data.result.punchline;
+
+---
+
+<Layout>
+    <h1 class="m-3 text-2xl text-red-500 font-black">Jokes!:</h1>
+    <div class="container mx-20 font-bold">
+        
+        <h2>Question: {randomJokeSetup}</h2>
+        <h2>Answer: {randomJokePunchline}</h2>
+    </div>
+    
+
+</Layout>
